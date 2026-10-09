@@ -1,0 +1,233 @@
+﻿* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #ffffff;
+  overflow-x: hidden;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.card-box {
+  background: #ffffff;
+  border: 1px solid #cfe2ff;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 30px rgba(13, 110, 253, 0.12);
+}
+
+.amount-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  border-bottom: 2px solid #0d6efd;
+  transition: border-color 0.25s;
+}
+
+.amount-input::placeholder {
+  color: #94b8f5;
+}
+
+.amount-input:focus-visible {
+  outline: none;
+  border-bottom-color: #0a58ca;
+}
+
+.swap-icon {
+  color: #0d6efd;
+  position: absolute;
+  right: 0.4em;
+  font-size: 2em;
+  bottom: 0.2em;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.swap-icon:hover {
+  transform: rotate(180deg);
+}
+
+.currency-picker {
+  position: relative;
+}
+
+.currency-picker .picker-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 1rem;
+  background: #ffffff;
+  color: #212529;
+  border: 1px solid #0d6efd;
+  border-radius: 0.35rem;
+  font-size: 1rem;
+  text-align: left;
+  transition: box-shadow 0.2s;
+}
+
+.currency-picker .picker-toggle:hover,
+.currency-picker .picker-toggle:focus {
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
+}
+
+.currency-picker .picker-toggle .code {
+  font-weight: bold;
+  color: #0d6efd;
+}
+
+.currency-picker .picker-toggle i {
+  margin-left: auto;
+  color: #0d6efd;
+  transition: transform 0.25s;
+}
+
+.currency-picker.open .picker-toggle i {
+  transform: rotate(180deg);
+}
+
+.picker-flag {
+  width: 28px;
+  height: 20px;
+  object-fit: cover;
+  border-radius: 2px;
+  border: 1px solid #e7f0ff;
+}
+
+.flag-fallback {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 20px;
+  padding: 0 4px;
+  font-size: 0.65rem;
+  font-weight: bold;
+  color: #ffffff;
+  background: #0d6efd;
+  border-radius: 3px;
+}
+
+.picker-panel {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  background: #ffffff;
+  border: 1px solid #0d6efd;
+  border-radius: 0.4rem;
+  box-shadow: 0 14px 30px rgba(13, 110, 253, 0.2);
+  padding: 0.6rem;
+  display: none;
+}
+
+.currency-picker.open .picker-panel {
+  display: block;
+}
+
+.picker-search {
+  width: 100%;
+  padding: 0.5rem 0.8rem;
+  margin-bottom: 0.5rem;
+  background: #ffffff;
+  border: 1px solid #ced4da;
+  border-radius: 0.3rem;
+  color: #212529;
+}
+
+.picker-search::placeholder {
+  color: #94b8f5;
+}
+
+.picker-search:focus {
+  outline: none;
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
+}
+
+.picker-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 230px;
+  overflow-y: auto;
+}
+
+.picker-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.6rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  color: #212529;
+  transition: background 0.15s;
+}
+
+.picker-list li:hover {
+  background: #0d6efd;
+  color: #ffffff;
+}
+
+.picker-list li.selected {
+  background: #e7f0ff;
+}
+
+.picker-list li:hover .code {
+  color: #ffffff;
+}
+
+.picker-list li .code {
+  font-weight: bold;
+  color: #0d6efd;
+  min-width: 38px;
+}
+
+.picker-empty {
+  color: #6c757d;
+  text-align: center;
+  padding: 0.7rem;
+}
+
+.picker-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.picker-list::-webkit-scrollbar-thumb {
+  background: #0d6efd;
+  border-radius: 3px;
+}
+
+.convert-button {
+  transition: letter-spacing 0.2s;
+}
+
+.convert-button:hover:not(:disabled) {
+  letter-spacing: 2px;
+}
+
+.convert-button:disabled {
+  opacity: 0.7;
+}
+
+.result-div {
+  min-height: 60px;
+  color: #0d6efd;
+}
+
+@media (max-width: 767px) {
+  .card-box {
+    width: 100% !important;
+    padding: 1.5rem !important;
+  }
+
+  .swap-icon {
+    font-size: 1.5em;
+  }
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' rx='3' fill='%230d6efd'/></svg>"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>Currency Exchange</title>
+  </head>
+  <body>
+    <div class="page d-flex justify-content-center align-items-center">
+      <section class="card-box w-75 p-5">
+        <h4 class="fw-bold text-primary">Amount</h4>
+
+        <div class="amount-wrapper w-100 position-relative">
+          <input
+            id="amountInput"
+            type="text"
+            class="amount-input text-primary px-4 fw-bold"
+            placeholder="1 By Default"
+          />
+          <i
+            id="swapBtn"
+            class="fa-solid fa-arrow-right-arrow-left swap-icon"
+            title="Swap currencies"
+          ></i>
+        </div>
+
+        <div id="amountAlert" class="d-none">
+          <div class="alert alert-warning py-1 mt-2 mb-0 small" role="alert">
+            Please enter a valid amount greater than zero.
+          </div>
+        </div>
+
+        <div class="currency-row position-relative mt-4">
+          <div id="fromPicker" class="currency-picker w-75 mx-auto"></div>
+        </div>
+
+        <div class="currency-row position-relative mt-4">
+          <div id="toPicker" class="currency-picker w-75 mx-auto"></div>
+        </div>
+
+        <div class="convert-div d-flex justify-content-center mt-4">
+          <button id="convertBtn" class="btn btn-primary w-75 convert-button">
+            Convert
+          </button>
+        </div>
+
+        <div id="apiAlert" class="d-none">
+          <div class="alert alert-danger py-1 mt-3 mb-0 small" role="alert"></div>
+        </div>
+
+        <div
+          id="resultDiv"
+          class="result-div flex-wrap d-flex justify-content-center align-items-center mt-4 fw-bold"
+        >
+          <div class="spinner-border spinner-border-sm me-2 text-primary" role="status"></div>
+          <span class="fs-5 text-secondary">Loading rates...</span>
+        </div>
+      </section>
+    </div>
+
+    <script src="js/countries.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
